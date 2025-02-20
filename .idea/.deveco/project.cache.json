@@ -1,0 +1,16 @@
+{
+	"BuildOptions":{
+		"BUNDLE_NAME":"ylan.site.ads",
+		"SELECT_BUILD_MODE":"",
+		"BUILD_PATH":{
+			"OUTPUT_PATH":"/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/build/outputs/default"
+		},
+		"SELECT_BUILD_PRODUCT":"default"
+	},
+	"CommonInfo":{
+		"crossplatform.projectType":"",
+		"project.ide.version":"5.0.7.200",
+		"current.select.product":"default",
+		"current.select.buildMode":""
+	}
+}

@@ -1,0 +1,50 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/ylan/.ohos/config/default_gitee_Ad_Splash_E7YauaNxLEZBa_SG6NVw5X_Gn_FEnecudCUzM6ErVM0=.cer",
+          "storePassword": "0000001B378187E854453D26A0459EC8E6508F2010FE97AF59CFB9CDDE221A32A82E71F27FE35235E8D022",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BB4EE49AD880FE4971A1E37CFC15FBC66146D2E064C3845FEF757F38F4F3A8055F9A0F171142547",
+          "profile": "/Users/ylan/.ohos/config/default_gitee_Ad_Splash_E7YauaNxLEZBa_SG6NVw5X_Gn_FEnecudCUzM6ErVM0=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/ylan/.ohos/config/default_gitee_Ad_Splash_E7YauaNxLEZBa_SG6NVw5X_Gn_FEnecudCUzM6ErVM0=.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "targetSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS"
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ],
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

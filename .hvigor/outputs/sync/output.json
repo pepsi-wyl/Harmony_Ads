@@ -1,0 +1,157 @@
+{
+  "ohos-module-entry": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build",
+    "DEPENDENCY_INFO": {},
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/src/main",
+        "RESOURCES_PATH": [
+          "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/src/main/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/outputs/default",
+          "INTERMEDIA_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/loader_out/default",
+          "JS_LITE_ASSETS_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/loader_out_lite/default",
+          "RES_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/res/default",
+          "RES_PROFILE_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/res/default/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/cache/default/default@CompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/cache/default/default@CompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/loader/default/loader.json",
+          "MANIFEST_JSON": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/manifest/default",
+          "OUTPUT_METADATA_JSON": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/hap_metadata/default/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/source_map/default"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      },
+      "ohosTest": {
+        "SOURCE_ROOT": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/src/ohosTest",
+        "RESOURCES_PATH": [
+          "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/src/ohosTest/resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/outputs/ohosTest",
+          "INTERMEDIA_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates",
+          "JS_ASSETS_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/loader_out/ohosTest",
+          "JS_LITE_ASSETS_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/loader_out_lite/ohosTest",
+          "RES_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/res/ohosTest",
+          "RES_PROFILE_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/res/ohosTest/resources/base/profile",
+          "ETS_SUPER_VISUAL_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileArkTS/esmodule",
+          "JS_SUPER_VISUAL_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/cache/ohosTest/ohosTest@OhosTestCompileJS/jsbundle",
+          "WORKER_LOADER": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/loader/ohosTest/loader.json",
+          "MANIFEST_JSON": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/manifest/ohosTest",
+          "OUTPUT_METADATA_JSON": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/hap_metadata/ohosTest/output_metadata.json",
+          "SOURCE_MAP_DIR": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry/build/default/intermediates/source_map/ohosTest"
+        },
+        "BUILD_OPTION": {
+          "debuggable": true
+        }
+      }
+    },
+    "BUILD_OPTION": {
+      "default-default": {
+        "debuggable": true,
+        "copyFrom": "default"
+      }
+    },
+    "BUILD_PROFILE_OPT": {
+      "apiType": "stageMode",
+      "buildOption": {},
+      "targets": [
+        {
+          "name": "default"
+        },
+        {
+          "name": "ohosTest"
+        }
+      ]
+    },
+    "BUILD_CACHE_DIR": ""
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/build",
+    "BUNDLE_NAME": "ylan.site.ads",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/build/outputs/default"
+    },
+    "MODULES": [
+      {
+        "name": "entry",
+        "srcPath": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad/entry",
+        "targets": [
+          {
+            "name": "default",
+            "applyToProducts": [
+              "default"
+            ]
+          }
+        ],
+        "belongProjectPath": "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad"
+      }
+    ],
+    "PROFILE_OPT": {
+      "app": {
+        "signingConfigs": [
+          {
+            "name": "default",
+            "type": "HarmonyOS",
+            "material": {
+              "certpath": "/Users/ylan/.ohos/config/default_gitee_Ad_Splash_E7YauaNxLEZBa_SG6NVw5X_Gn_FEnecudCUzM6ErVM0=.cer",
+              "storePassword": "0000001B378187E854453D26A0459EC8E6508F2010FE97AF59CFB9CDDE221A32A82E71F27FE35235E8D022",
+              "keyAlias": "debugKey",
+              "keyPassword": "0000001BB4EE49AD880FE4971A1E37CFC15FBC66146D2E064C3845FEF757F38F4F3A8055F9A0F171142547",
+              "profile": "/Users/ylan/.ohos/config/default_gitee_Ad_Splash_E7YauaNxLEZBa_SG6NVw5X_Gn_FEnecudCUzM6ErVM0=.p7b",
+              "signAlg": "SHA256withECDSA",
+              "storeFile": "/Users/ylan/.ohos/config/default_gitee_Ad_Splash_E7YauaNxLEZBa_SG6NVw5X_Gn_FEnecudCUzM6ErVM0=.p12"
+            }
+          }
+        ],
+        "products": [
+          {
+            "name": "default",
+            "signingConfig": "default",
+            "compatibleSdkVersion": "5.0.0(12)",
+            "targetSdkVersion": "5.0.0(12)",
+            "runtimeOS": "HarmonyOS"
+          }
+        ],
+        "buildModeSet": [
+          {
+            "name": "debug"
+          },
+          {
+            "name": "release"
+          }
+        ]
+      },
+      "modules": [
+        {
+          "name": "entry",
+          "srcPath": "./entry",
+          "targets": [
+            {
+              "name": "default",
+              "applyToProducts": [
+                "default"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "CONFIG_PROPERTIES": {
+      "enableSignTask": true,
+      "skipNativeIncremental": false,
+      "hvigor.keepDependency": true
+    },
+    "OVERALL_PROJECT_PATHS": [
+      "/Users/ylan/dev/coding/DevEcoStudioProjects/gitee_Ad"
+    ],
+    "BUILD_CACHE_DIR": ""
+  },
+  "version": 1
+}

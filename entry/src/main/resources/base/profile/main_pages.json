@@ -1,0 +1,11 @@
+{
+  "src": [
+    "pages/Splash",
+    "pages/SplashFullScreenAd",
+    "pages/SplashHalfScreenAd",
+    "pages/Index",
+    "pages/Banner",
+    "pages/NativeAd",
+    "pages/PlacementAd"
+  ]
+}

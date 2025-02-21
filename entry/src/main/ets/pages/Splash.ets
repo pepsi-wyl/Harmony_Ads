@@ -5,6 +5,7 @@ import { AdConf } from '../Ad/AdConf';
 import { AdRequest } from '../Ad/AdRequest';
 import { AdRoute } from '../Ad/AdRoute';
 import { AdType } from '../Ad/AdType';
+import { AdConstants } from '../common/AdConstants';
 import { AppConstants } from '../common/AppConstants';
 import { PagesConstants } from '../common/PagesConstants';
 import { Logger } from '../util/Logger';
@@ -27,7 +28,7 @@ export struct Splash {
       //   AdConf.adDisplayOptions,
       //   (ads: Array<advertising.Advertisement>, adOptions: advertising.AdOptions, adDisplayOptions: advertising.AdDisplayOptions) => {
       //     // 保存请求到的广告内容用于展示
-      //     if (canIUse('SystemCapability.Advertising.Ads')) {
+      //     if (canIUse(AdConstants.HUAWEI_SYS_CAPABILITY_ADS)) {
       //       if (ads[0].adType === AdType.SPLASH_AD) {
       //         // 调用开屏广告展示页面
       //         if (ads[0]?.isFullScreen === true) {
@@ -54,7 +55,7 @@ export struct Splash {
         AdConf.adDisplayOptions,
         (ads: Array<advertising.Advertisement>, adOptions: advertising.AdOptions, adDisplayOptions: advertising.AdDisplayOptions) => {
           // 保存请求到的广告内容用于展示
-          if (canIUse('SystemCapability.Advertising.Ads')) {
+          if (canIUse(AdConstants.HUAWEI_SYS_CAPABILITY_ADS)) {
             if (ads[0].adType === AdType.SPLASH_AD) {
               // 调用开屏广告展示页面
               // if (ads[0]?.isFullScreen === true) {

@@ -1,6 +1,7 @@
 import { abilityAccessCtrl, common } from '@kit.AbilityKit';
 import { identifier } from '@kit.AdsKit';
 import { BusinessError } from '@kit.BasicServicesKit';
+import { AdConstants } from '../common/AdConstants';
 import { Logger } from '../util/Logger';
 
 let TAG = "AdIdentifier"
@@ -23,7 +24,7 @@ export class AdIdentifier {
       // 请求权限,获取OAID
       abilityAccessCtrl
         .createAtManager()
-        .requestPermissionsFromUser(context, ['ohos.permission.APP_TRACKING_CONSENT'])
+        .requestPermissionsFromUser(context, [AdConstants.HUAWEI_PERMISSION_APP_TRACKING_CONSENT])
         .then((data) => {
           if (data.authResults[0] === 0) {
             Logger.info(`[${TAG}]`, 'succeeded in requesting permission');

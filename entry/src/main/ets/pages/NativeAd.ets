@@ -2,6 +2,7 @@ import { AdComponent, advertising } from '@kit.AdsKit';
 import { router } from '@kit.ArkUI';
 import { AdStatus } from '../Ad/AdStatus';
 import { AppConstants } from '../common/AppConstants';
+import { UICommonConstants } from '../common/UICommonConstants';
 import { Utils } from '../util/Utils';
 
 @Entry
@@ -44,7 +45,7 @@ struct NativeAd {
                   }
                 }
               }
-            }).width('100%').height('50%')
+            }).width(UICommonConstants.FULL_SIZE).height(UICommonConstants.SIZE_50)
           }
         })
       }
@@ -58,11 +59,11 @@ struct NativeAd {
         endMargin: 20
       })
       .edgeEffect(EdgeEffect.Spring)
-      .width('100%')
-      .height('100%')
+      .width(UICommonConstants.FULL_SIZE)
+      .height(UICommonConstants.FULL_SIZE)
     }
-    .width('100%')
-    .height('100%')
+    .width(UICommonConstants.FULL_SIZE)
+    .height(UICommonConstants.FULL_SIZE)
     .padding({ top: px2vp(this.systemHeight), bottom: 0 })
   }
 }

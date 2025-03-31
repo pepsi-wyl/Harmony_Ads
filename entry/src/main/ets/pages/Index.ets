@@ -9,6 +9,7 @@ import { InterstitialAdStatusHandler } from '../Ad/InterstitialAdStatusHandler';
 import { RewardAdStatusHandler, RewardInfoInterface } from '../Ad/RewardAdStatusHandler';
 import { AppConstants } from '../common/AppConstants';
 import { PagesConstants } from '../common/PagesConstants';
+import { UICommonConstants } from '../common/UICommonConstants';
 import { Logger } from '../util/Logger';
 import { Utils } from '../util/Utils';
 
@@ -161,8 +162,8 @@ struct Index {
         middle: { anchor: '__container__', align: HorizontalAlign.Center }
       })
     }
-    .height('100%')
-    .width('100%')
+    .height(UICommonConstants.FULL_SIZE)
+    .width(UICommonConstants.FULL_SIZE)
     .padding({ top: px2vp(this.systemHeight), bottom: px2vp(this.navigationHeight) })
   }
 }

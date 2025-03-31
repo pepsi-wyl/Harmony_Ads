@@ -2,6 +2,7 @@ import { AdComponent, advertising } from '@kit.AdsKit';
 import { router } from '@kit.ArkUI';
 import { AdStatus } from '../Ad/AdStatus';
 import { PagesConstants } from '../common/PagesConstants';
+import { UICommonConstants } from '../common/UICommonConstants';
 import { Utils } from '../util/Utils';
 
 @Entry
@@ -47,7 +48,7 @@ export struct SplashFullScreenAd {
             }
           }
         }
-      }).width('100%').height('100%')
-    }.width('100%').height('100%')
+      }).width(UICommonConstants.FULL_SIZE).height(UICommonConstants.FULL_SIZE)
+    }.width(UICommonConstants.FULL_SIZE).height(UICommonConstants.FULL_SIZE)
   }
 }

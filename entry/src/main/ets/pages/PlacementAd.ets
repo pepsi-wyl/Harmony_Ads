@@ -3,6 +3,7 @@ import { router, window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { AdStatus } from '../Ad/AdStatus';
 import { AppConstants } from '../common/AppConstants';
+import { UICommonConstants } from '../common/UICommonConstants';
 import { Logger } from '../util/Logger';
 import { Utils } from '../util/Utils';
 
@@ -85,7 +86,7 @@ struct PlacementAd {
             }
           }
         }
-      }).visibility(!this.isPlayVideo ? Visibility.Visible : Visibility.None).width('100%').aspectRatio(16 / 9)
+      }).visibility(!this.isPlayVideo ? Visibility.Visible : Visibility.None).width(UICommonConstants.FULL_SIZE).aspectRatio(16 / 9)
 
       Row() {
         if (this.countDownTxt) {
@@ -123,10 +124,10 @@ struct PlacementAd {
         .visibility(this.isPlayVideo ? Visibility.Visible : Visibility.None)
         .autoPlay(this.isPlayVideo ? true : false)
         .controls(false)
-        .width('100%')
+        .width(UICommonConstants.FULL_SIZE)
         .aspectRatio(16 / 9)
     }
-    .width('100%').height('100%').padding({ top: px2vp(this.systemHeight), bottom: px2vp(this.navigationHeight) })
+    .width(UICommonConstants.FULL_SIZE).height(UICommonConstants.FULL_SIZE).padding({ top: px2vp(this.systemHeight), bottom: px2vp(this.navigationHeight) })
   }
 
   /**

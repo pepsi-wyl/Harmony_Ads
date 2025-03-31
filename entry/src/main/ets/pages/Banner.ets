@@ -4,6 +4,7 @@ import { AdConf } from '../Ad/AdConf';
 import { AdIdentifier } from '../Ad/AdIdentifier';
 import { AdStatus } from '../Ad/AdStatus';
 import { AppConstants } from '../common/AppConstants';
+import { UICommonConstants } from '../common/UICommonConstants';
 import { Logger } from '../util/Logger';
 
 const TAG = "Banner"
@@ -61,15 +62,15 @@ struct Banner {
         .aspectRatio(this.ratio)
         .visibility(this.visibilityState)
         .id("Banner")
-        .width('100%')
+        .width(UICommonConstants.FULL_SIZE)
         .alignRules({
           center: { anchor: '__container__', align: VerticalAlign.Center },
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
       }
     }
-    .height('100%')
-    .width('100%')
+    .height(UICommonConstants.FULL_SIZE)
+    .width(UICommonConstants.FULL_SIZE)
     .padding({ top: px2vp(this.systemHeight), bottom: 0 })
   }
 }

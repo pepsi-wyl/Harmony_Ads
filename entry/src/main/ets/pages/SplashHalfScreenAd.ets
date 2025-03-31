@@ -2,6 +2,7 @@ import { AdComponent, advertising } from '@kit.AdsKit';
 import { router } from '@kit.ArkUI';
 import { AdStatus } from '../Ad/AdStatus';
 import { PagesConstants } from '../common/PagesConstants';
+import { UICommonConstants } from '../common/UICommonConstants';
 import { Utils } from '../util/Utils';
 
 @Entry
@@ -47,7 +48,7 @@ export struct SplashHalfScreenAd {
             }
           }
         }
-      }).width('100%').height('87%')
+      }).width(UICommonConstants.FULL_SIZE).height(UICommonConstants.SIZE_87)
 
       Column({}) {
         Row() {
@@ -75,6 +76,6 @@ export struct SplashHalfScreenAd {
         left: 16,
         right: 16
       })
-    }.width('100%').height('100%')
+    }.width(UICommonConstants.FULL_SIZE).height(UICommonConstants.FULL_SIZE)
   }
 }

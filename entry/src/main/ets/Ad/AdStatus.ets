@@ -12,6 +12,7 @@ export enum AdStatus {
   AD_COMPLETED = 'onVideoPlayEnd',
   AD_PORTRAIT = 'onPortrait',
   AD_LANDSCAPE = 'onLandscape',
+  AD_VIP_CLICKED = 'onVipClicked',
   AD_MEDIA_PROGRESS = 'onMediaProgress',
   AD_MEDIA_START = 'onMediaStart',
   AD_MEDIA_PAUSE = 'onMediaPause',

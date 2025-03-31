@@ -2,26 +2,16 @@ import { AdComponent, advertising } from '@kit.AdsKit';
 import { router } from '@kit.ArkUI';
 import { AdStatus } from '../Ad/AdStatus';
 import { PagesConstants } from '../common/PagesConstants';
-import { Utils } from '../util/Utils';
+import { UICommonConstants } from '../common/UICommonConstants';
+import { Logger } from '../util/Logger';
+
+const TAG = "SplashAdHalfContainer";
 
 @Entry
 @Component
-export struct SplashHalfScreenAd {
-  private ads: Array<advertising.Advertisement> = [];
-  private adDisplayOptions?: advertising.AdDisplayOptions;
-
-  aboutToAppear() {
-    const params: Record<string, Object> = router.getParams() as Record<string, Object>;
-    if (params && params.ads as Array<advertising.Advertisement> && params.adDisplayOptions as advertising.AdDisplayOptions) {
-      this.ads = params.ads as Array<advertising.Advertisement>;
-      this.adDisplayOptions = params.adDisplayOptions as advertising.AdDisplayOptions;
-    }
-  }
-
-  pageTransition() {
-    PageTransitionEnter({ type: RouteType.None, duration: 0 })
-    PageTransitionExit({ type: RouteType.None, duration: 0 })
-  }
+export struct SplashAdHalfContainer {
+  ads?: Array<advertising.Advertisement>;
+  adDisplayOptions?: advertising.AdDisplayOptions;
 
   build() {
     Column() {
@@ -32,13 +22,13 @@ export struct SplashHalfScreenAd {
           onStatusChanged: (status: string, ad: advertising.Advertisement, data: string) => {
             switch (status) {
               case AdStatus.AD_OPEN:
-                Utils.showToast('splash ad open');
+                Logger.debug(`[${TAG}]`, 'splash ad open');
                 break;
               case AdStatus.AD_CLICKED:
-                Utils.showToast('splash ad click');
+                Logger.debug(`[${TAG}]`, 'splash ad click');
                 break;
               case AdStatus.AD_CLOSED:
-                Utils.showToast('splash ad close');
+                Logger.debug(`[${TAG}]`, 'splash ad close');
                 router.clear();
                 router.replaceUrl({
                   url: PagesConstants.INDEX,
@@ -47,9 +37,9 @@ export struct SplashHalfScreenAd {
             }
           }
         }
-      }).width('100%').height('87%')
+      }).width(UICommonConstants.FULL_SIZE).height(UICommonConstants.SIZE_87)
 
-      Column({}) {
+      Column() {
         Row() {
           Image($r('app.media.app_icon'))
             .width(24)
@@ -75,6 +65,6 @@ export struct SplashHalfScreenAd {
         left: 16,
         right: 16
       })
-    }.width('100%').height('100%')
+    }.width(UICommonConstants.FULL_SIZE).height(UICommonConstants.FULL_SIZE)
   }
 }

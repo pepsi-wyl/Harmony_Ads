@@ -3,11 +3,14 @@ import { advertising } from '@kit.AdsKit';
 import { router } from '@kit.ArkUI';
 import { AdConf } from '../Ad/AdConf';
 import { AdRequest } from '../Ad/AdRequest';
-import { AdRoute } from '../Ad/AdRoute';
 import { AdType } from '../Ad/AdType';
 import { AdConstants } from '../common/AdConstants';
 import { AppConstants } from '../common/AppConstants';
 import { PagesConstants } from '../common/PagesConstants';
+import { UICommonConstants } from '../common/UICommonConstants';
+import { SplashAdFullContainer } from '../components/SplashAdFullContainer';
+import { SplashAdHalfContainer } from '../components/SplashAdHalfContainer';
+import { SplashView } from '../components/SplashView';
 import { Logger } from '../util/Logger';
 
 const TAG = 'Splash';
@@ -19,67 +22,46 @@ export struct Splash {
   @StorageProp(AppConstants.HEIGHT_NAVIGATION) navigationHeight: number = 0;
   private context = getContext(this) as common.UIAbilityContext;
   private adRequest: AdRequest = new AdRequest(this.context);
+  private adLoadType: number = 1; // 0 Image 1 Video
+  private adShowType: number = 0; // 0 HALF  1 FULL
+  @State private isShowAd: boolean = false;
+  private ads: Array<advertising.Advertisement> = [];
+  private adOptions: advertising.AdOptions = {};
+  private adDisplayOptions: advertising.AdDisplayOptions = {};
 
   aboutToAppear() {
+    Logger.info(`[${TAG}]`, 'aboutToAppear');
     try {
-      // this.adRequest.requestAd(
-      //   AdConf.splashAdVideoAdReqParams,
-      //   AdConf.adOptions,
-      //   AdConf.adDisplayOptions,
-      //   (ads: Array<advertising.Advertisement>, adOptions: advertising.AdOptions, adDisplayOptions: advertising.AdDisplayOptions) => {
-      //     // 保存请求到的广告内容用于展示
-      //     if (canIUse(AdConstants.HUAWEI_SYS_CAPABILITY_ADS)) {
-      //       if (ads[0].adType === AdType.SPLASH_AD) {
-      //         // 调用开屏广告展示页面
-      //         if (ads[0]?.isFullScreen === true) {
-      //           AdRoute.routePage(PagesConstants.SPLASH_FULL_SCREEN, ads, adOptions, adDisplayOptions);
-      //         } else {
-      //           AdRoute.routePage(PagesConstants.SPLASH_HALF_SCREEN, ads, adOptions, adDisplayOptions);
-      //         }
-      //
-      //         router.clear();
-      //       } else {
-      //         Logger.info(`[${TAG}]`, 'error adType');
-      //       }
-      //     }
-      //   },
-      //   (errorCode: number, errorMsg: string) => {
-      //     router.pushUrl({ url: PagesConstants.INDEX });
-      //     router.clear();
-      //   },
-      //   5000
-      // );
       this.adRequest.requestAd(
-        AdConf.splashAdImageAdReqParams,
+        this.adLoadType === 0 ? AdConf.splashAdImageAdReqParams : AdConf.splashAdVideoAdReqParams,
         AdConf.adOptions,
         AdConf.adDisplayOptions,
         (ads: Array<advertising.Advertisement>, adOptions: advertising.AdOptions, adDisplayOptions: advertising.AdDisplayOptions) => {
-          // 保存请求到的广告内容用于展示
-          if (canIUse(AdConstants.HUAWEI_SYS_CAPABILITY_ADS)) {
-            if (ads[0].adType === AdType.SPLASH_AD) {
-              // 调用开屏广告展示页面
-              // if (ads[0]?.isFullScreen === true) {
-              //   AdRoute.routePage(PagesConstants.SPLASH_FULL_SCREEN, ads, adOptions, adDisplayOptions);
-              // } else {
-              //   AdRoute.routePage(PagesConstants.SPLASH_HALF_SCREEN, ads, adOptions, adDisplayOptions);
-              // }
-              AdRoute.routePage(PagesConstants.SPLASH_FULL_SCREEN, ads, adOptions, adDisplayOptions);
-              router.clear();
-            } else {
-              Logger.info(`[${TAG}]`, 'error adType');
-            }
+          if (!canIUse(AdConstants.HUAWEI_SYS_CAPABILITY_ADS)) {
+            Logger.error(`[${TAG}]`, 'RequestAd HUAWEI_SYS_CAPABILITY_ADS is not supported on this device.');
+            return
           }
+
+          if (ads.length === 0 || ads[0].adType !== AdType.SPLASH_AD) {
+            Logger.error(`[${TAG}]`, 'RequestAd Invalid AdType received');
+            return
+          }
+
+          this.ads = ads
+          this.adOptions = adOptions
+          this.adDisplayOptions = adDisplayOptions
+          this.isShowAd = true
         },
         (errorCode: number, errorMsg: string) => {
+          Logger.error(`[${TAG}]`, `RequestAd fail code:${errorCode} msg:${errorMsg}`);
           router.pushUrl({ url: PagesConstants.INDEX });
           router.clear();
         },
-        5000
+        3000
       );
     } catch (error) {
-      Logger.error(`${TAG}]`, `catch err, code: ${error.code}, message: ${error.message}`);
+      Logger.error(`${TAG}]`, `aboutToAppear catch err, code: ${error.code}, message: ${error.message}`);
     }
-    Logger.info(`[${TAG}]`, 'aboutToAppear');
   }
 
   pageTransition() {
@@ -87,27 +69,18 @@ export struct Splash {
     PageTransitionExit({ type: RouteType.None, duration: 0 })
   }
 
-  @State name: string = '鲸鸿'
-  @State title: string = '开屏广告'
-
   build() {
     Stack() {
-      Column() {
-        Row() {
-          Text(this.name)
-            .fontSize(45)
-            .fontWeight(FontWeight.Bold)
-            .width(45)
-          Text(this.title)
-            .fontSize(20)
-            .fontWeight(FontWeight.Normal)
-            .width(25)
-            .markAnchor({ x: -20, y: -80 })
+      SplashView()
+      if (this.isShowAd) {
+        if (this.adShowType === 0) {
+          SplashAdHalfContainer({ ads: this.ads, adDisplayOptions: this.adDisplayOptions })
+        } else {
+          SplashAdFullContainer({ ads: this.ads, adDisplayOptions: this.adDisplayOptions })
         }
-      }.width('100%')
+      }
     }
-    .height('100%')
-    .backgroundColor('#F1F3F5')
-    .padding({ top: px2vp(this.systemHeight), bottom: px2vp(this.navigationHeight) })
+    .height(UICommonConstants.FULL_SIZE)
+    .backgroundColor($r('app.color.start_window_background'))
   }
 }

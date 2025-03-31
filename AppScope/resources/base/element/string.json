@@ -3,6 +3,10 @@
     {
       "name": "app_name",
       "value": "AD"
+    },
+    {
+      "name": "copyright",
+      "value": "版权所有 © 2024-2025 Ylan"
     }
   ]
 }
